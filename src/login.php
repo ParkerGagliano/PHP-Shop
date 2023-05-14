@@ -1,6 +1,10 @@
 <?php //This is the login page for registered users
+require '../secure_conn.php';
 require 'includes/header.php';
 if (isset($_POST['send'])) {
+	
+	//display php errors
+
 	$errors = array();
 	
 	$email= filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
@@ -22,7 +26,7 @@ if (isset($_POST['send'])) {
 	while (!$errors){ 
 		require_once ('../../mysqli_connect.php'); // Connect to the db.
 		//Query for email
-		$sql = "SELECT firstname, email, pass, username FROM proj_users WHERE email = ?";
+		$sql = "SELECT firstname, email, pass, username, isadmin FROM proj_users WHERE email = ?";
 		$stmt = mysqli_prepare($dbc, $sql);
 		mysqli_stmt_bind_param($stmt, 's', $email);
 		mysqli_stmt_execute($stmt);
@@ -37,11 +41,12 @@ if (isset($_POST['send'])) {
 				$firstName = $result2['firstname'];
 				$email = $result2['email'];
                 $username = $result2['username'];
-				//your code here
+				$admin = $result2['isadmin'];
 				session_start();
 				$_SESSION['firstname'] = $firstName;
 				$_SESSION['email'] = $email;
 				$_SESSION['username'] = $username;
+				$_SESSION['admin'] = $admin;
 				header('Location: logged_in.php');
 				exit;
 			}

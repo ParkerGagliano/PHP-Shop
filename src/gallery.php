@@ -1,8 +1,5 @@
 
-
-
 <?php 
-    error_reporting(E_ALL);
 	require 'includes/header.php'; 
     require_once '../../mysqli_connect.php';
 
@@ -57,7 +54,7 @@
 
 
 	<main>
-        <h2>Japan Journey</h2>
+     
 		<?php echo" <p id='picCount'>Displaying $offset to $current of $numcols</p> "?>
         <section id="gallery">
         <table id="thumbs">

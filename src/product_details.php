@@ -50,11 +50,11 @@
                 Add to Cart
             </button>
         </form>
-        <?php if (isset($_SESSION['cart'])) { ?>
+        <?php if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) { ?>
             <a href="cart.php" class="border border-orange-600  font-bold py-2 px-4 rounded">View Cart</a>
         <?php } else { ?>
-            <h2 class="text-xl font-bold mb-4">We are unable to process your request at this time.</h2>
-            <h3 class="text-lg">Please try again later.</h3>
+            <h2 class="text-xl font-bold mb-4">Add to cart to view</h2>
+          
             <?php
                 include './includes/footer.php';
                 exit;

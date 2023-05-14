@@ -1,5 +1,5 @@
 <?php //This page checks for required content, errors, and provides sticky output
-
+	require '../secure_conn.php';	
     require './includes/header.php';
     //display errors php
 

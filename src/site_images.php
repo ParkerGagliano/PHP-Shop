@@ -3,9 +3,7 @@
 define('MAX_SIZE', 350);  //350x350 is the biggest size for a "main" image on the gallery page
 require 'includes/header.php';
 //show errors
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 if(isset($_POST['submit'])) {
 	if(isset($_FILES['site_img'])){

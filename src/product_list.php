@@ -22,7 +22,7 @@
 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 	<h2 class="text-3xl font-bold mb-4 text-center">All currently listed products</h2>
 
-	<?php if (isset($_SESSION['cart'])) {
+	<?php if(isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 		echo '<a href="cart.php" class="mx-auto inline-block text-sm px-4 py-2 leading-none border rounded text-white bg-blue-500 hover:bg-blue-600 mt-4 mb-15">View Cart</a>';
 	} ?>
 	<table class="w-full border-collapse border border-gray-300 mt-10">

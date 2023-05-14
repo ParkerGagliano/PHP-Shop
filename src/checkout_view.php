@@ -1,13 +1,14 @@
 <?php require 'includes/header.php'; ?>
-<main class="w-full mb-10">
+<main>
     <h2>Your Cart</h2>
     <?php if (empty($_SESSION['cart']) || !isset($_SESSION['cart'])) { 
         echo '<h2>There are no products in your cart.</h2>';
+		echo '<h3>Please use the Purchase Prints link to the left to shop.</h3>';
 	} else { 
 		//display cart if not empty
 		$total = 0; // Initialize cart total to recalculate according to current values. ?>
-                <h4 class="text-xl font-bold">To remove an item from your cart, change its quantity to 0.</h4>
-<form action="cart.php" method="post" class="mt-8 mx-auto w-auto">
+        <h4 class="text-xl font-bold">To remove an item from your cart, change its quantity to 0.</h4>
+<form action="cart.php" method="post" class="mt-8">
   <input type="hidden" name="action" value="update">
   <table>
     <tr id="cart_header">
@@ -24,7 +25,7 @@
       </td>
       <td class="text-right">$<?php echo $item['price']; ?></td>
       <td class="text-right">
-        <input type="number" name="newqty[<?php echo $img; ?>]" value="<?php echo $item['quantity'];?>" class="border border-orange-300 rounded-md p-2 w-full">
+        <input type="number" class="cart_qty" name="newqty[<?php echo $img; ?>]" value="<?php echo $item['quantity'];?>" class="w-16 p-3">
       </td>
       <?php 
       // Calculate the total and sub-totals.
@@ -52,13 +53,11 @@
 </form>
 <br><br>
 <!-- Print the "Checkout" button and form: -->
-<a href="checkout.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">Checkout</a>
-<a href="cart.php?action=empty" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mb-5" >Empty Cart</a>
-<a href="checkout.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">Checkout</a>
-		
+<p><a href="checkout.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Checkout</a></p>
+<p><a href="cart.php?action=empty" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Empty Cart</a></p>
+<p><a href="checkout.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Checkout</a></p>
 		
 		<?php } //end else?>			
  
 </main>
-</div>
 <?php include 'includes/footer.php'; ?>

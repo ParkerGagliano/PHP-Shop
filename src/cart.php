@@ -34,7 +34,7 @@
 			} else { // New product to the cart.
 				// Get the print's data from the database:
 				require_once '../../mysqli_connect.php'; // Connect to the database.
-				$getImage= "SELECT * FROM JJ_images WHERE image_id = ?";
+				$getImage= "SELECT * FROM proj_images WHERE image_id = ?";
 				$stmt=mysqli_prepare($dbc, $getImage);	
 				mysqli_stmt_bind_param($stmt, 'i', $imgID);
 				mysqli_stmt_execute($stmt);
@@ -64,6 +64,7 @@
 				}	
 			} // end of new product else
 			include('cart_view.php');
+
 			break;
 		case 'update':
 			$new_qty_list = filter_var($_POST['newqty'], FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
@@ -80,13 +81,16 @@
 				}
 			}
 			include('cart_view.php');
+
 			break;
 		case 'show_cart':
 			include('cart_view.php');
+	
 			break;
-		case 'empty_cart':
+		case 'empty':
 			unset($_SESSION['cart']);
 			include('cart_view.php');
+
 			break;
 	} //end switch
 ?>

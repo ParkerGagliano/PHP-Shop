@@ -1,7 +1,7 @@
 <?php
 	require './includes/header.php';
 	echo "<main>";
-	if (($_SESSION['admin'])!=1){
+	if (($_SESSION['admin'])==1){
 		// Check if the form has been submitted:
 		if (isset($_POST['submit'])) {	
 			// Check for an uploaded file:
@@ -20,7 +20,7 @@
 						
 						//write to database
 						require_once ('../../mysqli_connect.php'); // Connect to the db.
-						$sql = "INSERT into JJ_user_images (email, fileName, fileType) VALUES (?, ?, ?)";
+						$sql = "INSERT into proj_images (email, fileName, fileType) VALUES (?, ?, ?)";
 						$stmt = mysqli_prepare($dbc, $sql);
 						$email = $_SESSION['email'];
 						mysqli_stmt_bind_param($stmt, 'sss', $email, $name, $type);
@@ -94,6 +94,7 @@
 			File:<input type="file" name="upload" id="file"></label>
 			<label for = "submit">And press
 			<input type="submit" name="submit" value="Submit" id="submit"></label>
+            
 		</fieldset>
 	</form>
 </main>

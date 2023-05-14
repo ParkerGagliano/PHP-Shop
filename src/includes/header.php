@@ -1,7 +1,8 @@
 <?php 
 	include './includes/title.php';
-    error_reporting(0);
-    ini_set('display_errors', 0);
+  //hide all php errors
+  error_reporting(0);
+
 
 ?>	
 <html lang="en">
@@ -15,7 +16,7 @@
       type="image/x-icon"
       href="./images/icons8-shopping-cart-96.png"
     />
-    <link rel="stylesheet" href="../../dist/output.css" />
+    <link rel="stylesheet" href="./css/output.css" />
     <style>
         #here {
             color:red;
@@ -42,5 +43,5 @@
         </div>
       </div>
    
-<div id="wrapper" class="flex-row flex mt-10 min-h-screen">
+<div id="wrapper" class="flex-row flex mt-10 min-h-1/2">
     <?php require './includes/menu.php'; ?>

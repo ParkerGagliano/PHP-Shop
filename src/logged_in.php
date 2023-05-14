@@ -18,7 +18,10 @@ require 'includes/header.php';
 		echo '<h3>'.$message2.'</h3>';
 		?>
 	</main>
+</div>
 	<?php // Include the footer and quit the script:
 	include ('./includes/footer.php'); 
 	?>
+
+
 	

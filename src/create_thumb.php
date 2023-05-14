@@ -17,7 +17,7 @@ imagecopyresampled($thumb, $resource2, 0, 0, 0, 0, $th_width, $th_height, $width
 
 $new_destination = "images/thumbs/".$filename;// Adjust the path to include the thumbs folder.
 
-if ($shortType == 'gif') {
+if ($shortType == 'gif') {  
     imagegif($thumb, $new_destination);
 }
 elseif ($shortType == 'png') {
